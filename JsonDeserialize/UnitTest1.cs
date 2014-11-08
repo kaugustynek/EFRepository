@@ -1,19 +1,4 @@
-﻿//using System;
-//using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-//namespace JsonDeserialize
-//{
-//    [TestClass]
-//    public class UnitTest1
-//    {
-//        [TestMethod]
-//        public void TestMethod1()
-//        {
-//        }
-//    }
-//}
-
-using System;
+﻿using System;
 using System.Diagnostics;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -26,14 +11,26 @@ namespace JsonDeserialize
     [TestClass]
     public class JsonDeserializerTests
     {
-        private const string ValidJson = "{\"Temperature\": 100, \"DewPoint\": 13.4, \"Humidity\": 40}";
+        private const string ValidJson = "{'Temperature': 100, 'DewPoint': 13.4, 'Humidity': 40}";
         private const string InvalidJson = "";
-        private const string InvalidJson2 = "{\"Temperaturesdfsf\": 1dsf, \"DewPoint\": 13.4, \"Humidity\": 40}";
-        
+        private const string InvalidJson2 = "{'Temperaturesdfsf': 1dsf, 'DewPoint': 13.4, 'Humidity': 40}";
+
+        [TestMethod]
+        public void Test_valid_json_serialize()
+        {
+            var environment = JsonConvert.DeserializeObject<Environment>(ValidJson);
+            var result = JsonConvert.SerializeObject(environment);
+
+            result.Should().NotBeNull();
+            result.ShouldBeEquivalentTo(ValidJson);
+        }
+
+
         [TestMethod]
         public void When_valid_json_is_passed_it_deserialize_it()
         {
-            var result = ValidJson.DeserializeEnvironemnt();
+            var result = JsonConvert.DeserializeObject<Environment>(ValidJson);
+
             result.Should().NotBeNull();
             result.Should().BeAssignableTo<IEnvironment>();
             result.DewPoint.Should().Be(13.4);
@@ -45,7 +42,7 @@ namespace JsonDeserialize
         public void When_invalid_json_is_passed_it_returns_null()
         {
             IEnvironment result = null;
-            Assert.DoesNotThrow(() => result = InvalidJson.DeserializeEnvironemnt());
+            Xunit.Assert.DoesNotThrow(() => result = InvalidJson.DeserializeEnvironemnt());
             result.Should().BeNull();
         }
 
@@ -53,7 +50,7 @@ namespace JsonDeserialize
         public void When_invalid_json2_is_passed_it_returns_null()
         {
             IEnvironment result = null;
-            Assert.DoesNotThrow(() => result = InvalidJson2.DeserializeEnvironemnt());
+            Xunit.Assert.DoesNotThrow(() => result = InvalidJson2.DeserializeEnvironemnt());
             result.Should().BeNull();
         }
     }
@@ -80,13 +77,15 @@ namespace JsonDeserialize
                 return new Environment();
             }
         }
-        private class Environment : IEnvironment
-        {
-            public double Temperature { get; set; }
-            public double Humidity { get; set; }
-            public double DewPoint { get; set; }
-        }
     }
+
+    public class Environment : IEnvironment
+    {
+        public double Temperature { get; set; }
+        public double Humidity { get; set; }
+        public double DewPoint { get; set; }
+    }
+    
     public interface IEnvironment
     {
         double Temperature { get; }

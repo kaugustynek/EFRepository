@@ -11,6 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacTest", "AutofacTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonDeserialize", "JsonDeserialize\JsonDeserialize.csproj", "{F07193F7-070F-42AB-894F-EE2991BCAC74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFRepository", "EFRepository\EFRepository.csproj", "{968A3BFD-5B69-41F7-9CB3-C0D99BD6DC92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuralNetwork", "NeuralNetwork\NeuralNetwork.csproj", "{C0479BBF-E47F-4713-985C-6314C5ED0979}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AD7C454F-47D6-4AFA-A20C-72CDF7A94B06}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +42,14 @@ Global
 		{F07193F7-070F-42AB-894F-EE2991BCAC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F07193F7-070F-42AB-894F-EE2991BCAC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F07193F7-070F-42AB-894F-EE2991BCAC74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{968A3BFD-5B69-41F7-9CB3-C0D99BD6DC92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{968A3BFD-5B69-41F7-9CB3-C0D99BD6DC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{968A3BFD-5B69-41F7-9CB3-C0D99BD6DC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{968A3BFD-5B69-41F7-9CB3-C0D99BD6DC92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0479BBF-E47F-4713-985C-6314C5ED0979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0479BBF-E47F-4713-985C-6314C5ED0979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0479BBF-E47F-4713-985C-6314C5ED0979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0479BBF-E47F-4713-985C-6314C5ED0979}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
